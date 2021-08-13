@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { addErrorValue, addSmurf } from "../actions";
 
 import { connect } from "react-redux";
-import { v4 as uuidv4 } from "uuid";
 
 const AddForm = (props) => {
   const [state, setState] = useState({
@@ -10,7 +9,6 @@ const AddForm = (props) => {
     position: "",
     nickname: "",
     description: "",
-    id: uuidv4(),
   });
 
   const handleChange = (e) => {
