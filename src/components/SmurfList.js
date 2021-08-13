@@ -1,6 +1,7 @@
 import React from "react";
 import Smurf from "./Smurf";
 import { connect } from "react-redux";
+import { v4 as uuidv4 } from "uuid";
 
 const SmurfList = (props) => {
   if (props.isLoading) {
@@ -11,7 +12,7 @@ const SmurfList = (props) => {
     <div className="listContainer">
       {/* <Smurf smurf={testSmurf} /> */}
       {props.smurfs.map((obj) => {
-        return <Smurf smurf={obj} key={obj.id} />;
+        return <Smurf smurf={obj} key={uuidv4()} />;
       })}
     </div>
   );
