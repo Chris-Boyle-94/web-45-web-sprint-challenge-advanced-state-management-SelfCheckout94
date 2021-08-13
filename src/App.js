@@ -6,7 +6,6 @@ import React, { Component } from "react";
 import AddForm from "./components/AddForm";
 import Header from "./components/Header";
 import SmurfList from "./components/SmurfList";
-import axios from "axios";
 import { connect } from "react-redux";
 import { fetchSmurfs } from "./actions";
 

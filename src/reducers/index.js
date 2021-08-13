@@ -15,11 +15,15 @@ export const initialState = {
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_LOADING:
-      return state;
+      return {
+        ...state,
+        isLoading: true,
+      };
     case FETCH_SUCCESS:
       return {
         ...state,
         smurfs: action.payload,
+        isLoading: false,
       };
     case FETCH_FAILED:
       return action.payload;
