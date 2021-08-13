@@ -11,25 +11,34 @@ export const fetchSmurfs = () => {
     dispatch({ type: FETCH_LOADING });
     axios
       .get("http://localhost:3333/smurfs")
-      .then((res) => console.log(res.data))
-      .catch((err) => console.log(err));
+      .then((res) => {
+        console.log(res);
+        dispatch({ type: FETCH_SUCCESS, payload: res.data });
+      })
+      .catch((err) => {
+        dispatch({ type: FETCH_FAILED, payload: err });
+      });
   };
 };
 
 export const fetchLoading = () => {
-  return { type: FETCH_LOADING };
+  return { type: FETCH_LOADING, payload: "Smurfs are loading..." };
 };
 
-export const fetchSuccess = () => {
-  return { type: FETCH_SUCCESS };
+export const fetchSuccess = (smurfs) => {
+  return { type: FETCH_SUCCESS, payload: smurfs };
 };
 
-export const fetchFailed = (smurf) => {
+export const fetchFailed = (error) => {
+  return { type: FETCH_FAILED, payload: error };
+};
+
+export const addSmurf = (smurf) => {
   return { type: ADD_SMURF, payload: smurf };
 };
 
-export const addErrorValue = (error) => {
-  return { type: ADD_ERROR_VALUE, payload: error };
+export const addErrorValue = (errorValue) => {
+  return { type: ADD_ERROR_VALUE, payload: errorValue };
 };
 
 //Task List:
